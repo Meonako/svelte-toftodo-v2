@@ -1,0 +1,82 @@
+table
+    margin-top: 20px
+    width: 100%
+    height: 80%
+    table-layout: fixed
+
+    tr:nth-child(2n)
+        background-color: rgba(45, 45, 45, 0.9)
+
+    tr
+        height: 50px
+        background-color: rgba(30, 30, 30, 0.9)
+
+    td
+        padding: 1rem
+        font-size: 1.1rem
+        height: 20px
+        vertical-align: middle
+
+    td:first-child
+        font-size: 1.3rem
+        font-weight: 700
+
+    input[type="number"]
+        font-size: 1rem
+        text-align: center
+        background-color: transparent
+        border: 0.5px solid hsl(0, 0%, 50%)
+
+    .form-control
+        font-weight: bold
+        line-height: 1.1
+        display: grid
+        grid-template-columns: 1em auto
+        gap: 0.5em
+
+    input[type="checkbox"]
+        -webkit-appearance: none
+        appearance: none
+        background-color: transparent
+        margin: 0
+
+        font: inherit
+        color: currentColor
+        width: 1.15em
+        height: 1.15em
+        border: 0.15em solid currentColor
+        border-radius: 0.15em
+        transform: translateY(-0.075em)
+
+        display: grid
+        place-content: center
+
+    input[type="checkbox"]::before
+        content: ""
+        width: 0.65em
+        height: 0.65em
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%)
+        transform: scale(0)
+        transform-origin: bottom left
+        transition: 120ms transform ease-in-out
+        box-shadow: inset 1em 1em rgba(182, 182, 182, 0.9)
+        background-color: CanvasText
+
+    input[type="checkbox"]:checked::before
+        transform: scale(1)
+
+    input[type="checkbox"]:focus
+        outline: max(2px, 0.15em) solid currentColor
+        outline-offset: max(2px, 0.15em)
+
+    input[type="checkbox"]:disabled
+        --form-control-color: var(--form-control-disabled)
+
+        color: var(--form-control-disabled)
+        cursor: not-allowed
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button
+        appearance: none
+        -webkit-appearance: none
+        margin: 0
