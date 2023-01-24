@@ -31,6 +31,8 @@
     }
 </script>
 
+<svelte:head><title>Tower of Fantasy TODO List</title></svelte:head>
+
 <main
     on:wheel={transformScroll}
 >
