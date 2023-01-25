@@ -3,8 +3,6 @@
 
 	export let value = false;
 
-	import Background from '$lib/assets/modal.png';
-
 	import { createEventDispatcher, onDestroy } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 
