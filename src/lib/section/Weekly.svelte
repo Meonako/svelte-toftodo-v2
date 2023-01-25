@@ -26,6 +26,9 @@
 		resetTime.setDate(resetTime.getDate() - resetTime.getDay());
 		resetTime.setHours(4, 0, 0, 0);
 
+		console.log("Weekly Time: ", lastUpdate)
+		console.log("Weekly Reset Time: ", resetTime)
+
 		if (lastUpdate < resetTime) {
 			if (!browser) return;
 			showModal = true;

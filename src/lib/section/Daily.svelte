@@ -32,6 +32,9 @@
 		const resetTime = new Date();
 		resetTime.setHours(4, 0, 0, 0);
 
+		console.log("Daily Time: ", lastUpdate)
+		console.log("Daily Reset Time: ", resetTime)
+
 		if (lastUpdate < resetTime) {
 			if (!browser) return;
 			showModal = true;

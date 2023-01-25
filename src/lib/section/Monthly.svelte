@@ -27,7 +27,8 @@
 		resetTime.setDate(0);
 		resetTime.setHours(4, 0, 0, 0);
 
-		console.log(resetTime);
+		console.log("Monthly Time: ", lastUpdate)
+		console.log("Monthly Reset Time: ", resetTime)
 
 		if (lastUpdate < resetTime) {
 			if (!browser) return;
