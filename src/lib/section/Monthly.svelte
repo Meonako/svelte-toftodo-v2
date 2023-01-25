@@ -17,9 +17,14 @@
 		$monthly.Time = new Date();
 	}
 
-	$: if (firstReset) monthly.set(reset($monthly));
+	$: if (firstReset) {
+		console.log("Trigger Montyly firstReset.")
+		monthly.set(reset($monthly));
+		firstReset = false;
+	};
 
 	function Time() {
+		console.log("Trigger Monthly Time.")
 		if (firstReset) return;
 		// const lastUpdate = new Date(2023, 0, 22, 3, 59, 59);
 		const lastUpdate = $monthly.Time;

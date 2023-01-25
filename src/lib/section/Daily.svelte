@@ -23,13 +23,22 @@
 		$daily.Time = new Date();
 	}
 
-	$: if (firstReset) daily.set(reset($daily));
+	$: if (firstReset) {
+		console.log("Trigger Daily firstReset.")
+		daily.set(reset($daily));
+		firstReset = false;
+	};
 
 	function Time() {
+		console.log("Trigger Daily Time.")
 		if (firstReset) return;
 		// const lastUpdate = new Date(2023, 0, 22, 3, 59, 59);
 		const lastUpdate = $daily.Time;
+		const currentTime = new Date();
 		const resetTime = new Date();
+		if (currentTime.getHours() <= 4) {
+            resetTime.setDate(currentTime.getDate() - 1)
+        }
 		resetTime.setHours(4, 0, 0, 0);
 
 		console.log("Daily Time: ", lastUpdate)

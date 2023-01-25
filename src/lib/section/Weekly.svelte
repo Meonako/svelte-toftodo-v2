@@ -16,9 +16,14 @@
 		$weekly.Time = new Date();
 	}
 
-	$: if (firstReset) weekly.set(reset($weekly));
+	$: if (firstReset) {
+		console.log("Trigger Weekly firstReset.")
+		weekly.set(reset($weekly));
+		firstReset = false;
+	};
 
 	function Time() {
+		console.log("Trigger Weekly Time.")
 		if (firstReset) return;
 		// const lastUpdate = new Date(2023, 0, 22, 3, 59, 59);
 		const lastUpdate = $weekly.Time;
