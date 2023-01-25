@@ -1,72 +1,105 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 	import Checkbox from '$lib/components/Checkbox.svelte';
+	import Modal from '$lib/components/ConfirmModal.svelte';
 
-    import { writable } from 'svelte/store';
+	import { weekly, weeklyMax } from '$lib/store/weekly';
+	import type { Weekly } from '$lib/store/weekly';
+	import { browser } from '$app/environment';
+	import { reset } from '$lib/utils/reset';
 
-	let dream = writable(0);
-	let raid = writable(0);
-	let seqPhan = writable(0);
-	let crew = writable(0);
-	let msecQuest = writable(0);
-	let artificial_island_monster = writable(false);
+	let showModal = false;
+	let firstReset = false;
 
-	const DREAM_MAX = 7;
-    const RAID_MAX = 3;
-    const SEQ_PHAN_MAX = 3;
-    const CREW_QUEST_MAX = 4;
-    const MSEC_QUEST_MAX = 3;
+	$: if ($weekly) {
+		Time();
+		$weekly.Time = new Date();
+	}
 
-	function reset() {
-		dream.set(0);
-		raid.set(0);
-		seqPhan.set(0);
-		crew.set(0);
-		msecQuest.set(0);
-		artificial_island_monster.set(false);
+	$: if (firstReset) weekly.set(reset($weekly));
+
+	function Time() {
+		if (firstReset) return;
+		// const lastUpdate = new Date(2023, 0, 22, 3, 59, 59);
+		const lastUpdate = $weekly.Time;
+		const resetTime = new Date();
+		resetTime.setDate(resetTime.getDate() - resetTime.getDay());
+		resetTime.setHours(4, 0, 0, 0);
+
+		if (lastUpdate < resetTime) {
+			if (!browser) return;
+			showModal = true;
+		}
 	}
 </script>
 
-<div class="item">
-	<h1>Weekly</h1>
-	<hr />
-	<button on:click={reset} style="margin-top: 1rem">Reset</button>
-	<table>
-		<tr>
-			<td>Dream Machine</td>
-			<td>
-                <Button value={dream} max={DREAM_MAX} />
-            </td>
-		</tr>
-		<tr>
-			<td>Raid</td>
-			<td>
-                <Button value={raid} max={RAID_MAX} />
-            </td>
-		</tr>
-		<tr>
-			<td>Sequential Phantasm</td>
-			<td>
-                <Button value={seqPhan} max={SEQ_PHAN_MAX} />
-            </td>
-		</tr>
-		<tr>
-			<td>Crew Quest</td>
-			<td>
-                <Button value={crew} max={CREW_QUEST_MAX} />
-            </td>
-		</tr>
-		<tr>
-			<td>M-SEC Quest</td>
-			<td>
-                <Button value={msecQuest} max={MSEC_QUEST_MAX} />
-            </td>
-		</tr>
-		<tr>
-			<td>Artificial Island Monster</td>
-			<td>
-                <Checkbox value={artificial_island_monster} text="Clear" />
-            </td>
-		</tr>
-	</table>
-</div>
+{#if showModal}
+	<Modal on:close={() => (showModal = false)} bind:value={firstReset}>
+		<h1 slot="header">WEEKLY</h1>
+
+		<h2>
+			Do you want to reset <strong style="color: red; text-decoration: underline;">WEEKLY</strong>?
+		</h2>
+	</Modal>
+{/if}
+<h1>Weekly</h1>
+<hr />
+<button
+	on:click={() => {
+		firstReset = false;
+		showModal = true;
+	}}
+	class="resetBtn"
+	style="margin-top: 1rem"
+>
+	Reset
+</button>
+<table>
+	<tr>
+		<td>Dream Machine</td>
+		<td>
+			<Button bind:value={$weekly.DreamMachine} max={weeklyMax.DreamMachine} />
+		</td>
+	</tr>
+	<tr>
+		<td>Raid</td>
+		<td>
+			<Button bind:value={$weekly.Raid} max={weeklyMax.Raid} />
+		</td>
+	</tr>
+	<tr>
+		<td>Sequential Phantasm</td>
+		<td>
+			<Button bind:value={$weekly.SequentialPhantasm} max={weeklyMax.SequentialPhantasm} />
+		</td>
+	</tr>
+	<tr>
+		<td>Crew Quest</td>
+		<td>
+			<Button bind:value={$weekly.CrewQuest} max={weeklyMax.CrewQuest} />
+		</td>
+	</tr>
+	<tr>
+		<td>M-SEC Quest</td>
+		<td>
+			<Button bind:value={$weekly.MSECQuest} max={weeklyMax.MSECQuest} />
+		</td>
+	</tr>
+	<tr>
+		<td>Artificial Island</td>
+		<td>
+			<Checkbox bind:value={$weekly.ArtificialIsland.Monster} text="Monster Cleared" />
+			<hr>
+			<Checkbox bind:value={$weekly.ArtificialIsland.Metal} text="Metal Shop" />
+			<hr>
+			<Checkbox bind:value={$weekly.ArtificialIsland.Fiber} text="Fiber Shop" />
+			<hr>
+			<Checkbox bind:value={$weekly.ArtificialIsland.Energy} text="Energy Shop" />
+			<hr>
+			<Checkbox bind:value={$weekly.ArtificialIsland.Supply} text="Supply Shop" />
+			<hr>
+			<Checkbox bind:value={$weekly.ArtificialIsland.Accessory} text="Accessory Shop" />
+			<hr>
+		</td>
+	</tr>
+</table>

@@ -1,12 +1,8 @@
-<script>
-    import BG from "$lib/assets/bg.mp4"
-</script>
-
-<video autoplay loop muted playsinline src={BG} />
+<video autoplay loop muted playsinline src="/bg.mp4" />
 
 <style>
     video {
-        position: absolute;
+        position: fixed;
         right: 0;
         bottom: 0;
         z-index: -1;

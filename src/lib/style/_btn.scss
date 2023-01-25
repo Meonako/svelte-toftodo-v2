@@ -1,0 +1,13 @@
+button.resetBtn {
+	margin-top: 1rem;
+	background-color: red;
+	color: hsl(0, 0%, 90%);
+	border: none;
+}
+
+button.resetBtn:hover {
+	background-color: hsl(0, 0%, 90%);
+	// background-color: hsl(60, 100%, 30%);
+    color: red;
+    border: 1px solid red;
+}
