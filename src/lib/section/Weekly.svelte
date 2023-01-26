@@ -17,21 +17,20 @@
 	}
 
 	$: if (firstReset) {
-		console.log("Trigger Weekly firstReset.")
 		weekly.set(reset($weekly));
 		firstReset = false;
-	};
+	}
 
 	function Time() {
-		console.log("Trigger Weekly Time.")
 		if (firstReset) return;
 		// const lastUpdate = new Date(2023, 0, 22, 3, 59, 59);
 		const lastUpdate = $weekly.Time;
 		const resetTime = new Date();
-		resetTime.setDate(resetTime.getDate() - resetTime.getDay());
+
+		resetTime.setDate(resetTime.getDate() - resetTime.getDay() + 1);
 		resetTime.setHours(4, 0, 0, 0);
 
-		console.log("Weekly Time: ", lastUpdate)
+		console.log("Weekly LastU Time: ", lastUpdate)
 		console.log("Weekly Reset Time: ", resetTime)
 
 		if (lastUpdate < resetTime) {
