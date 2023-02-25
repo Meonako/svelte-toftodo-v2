@@ -93,6 +93,18 @@
 		</td>
 	</tr>
 	<tr>
+		<td>Void Rift</td>
+		<td>
+			<Checkbox bind:value={$weekly.VoidRift} text="Clear" />
+		</td>
+	</tr>
+	<tr>
+		<td>Frontier Clash</td>
+		<td>
+			<Checkbox bind:value={$weekly.FrontierClash} text="Clear" />
+		</td>
+	</tr>
+	<tr>
 		<td>Artificial Island</td>
 		<td>
 			<Checkbox bind:value={$weekly.ArtificialIsland.Monster} text="Monster Cleared" />

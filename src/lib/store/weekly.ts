@@ -11,6 +11,8 @@ export interface Weekly extends Base {
 	SequentialPhantasm: number;
 	CrewQuest: number;
 	MSECQuest: number;
+	VoidRift: boolean;
+	FrontierClash: boolean;
 	ArtificialIsland: {
 		Monster: boolean,
 		Metal: boolean,
@@ -27,15 +29,17 @@ const weeklyDefault: Weekly = {
 	SequentialPhantasm: 0,
 	CrewQuest: 0,
 	MSECQuest: 0,
+	VoidRift: false,
+	FrontierClash: false,
 	ArtificialIsland: {
 		Monster: false,
 		Metal: false,
 		Fiber: false,
 		Energy: false,
 		Supply: false,
-		Accessory: false,
+		Accessory: false
 	},
-	Time: new Date,
+	Time: new Date()
 };
 
 export const weeklyMax = {

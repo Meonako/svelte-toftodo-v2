@@ -2,41 +2,9 @@
 	import Daily from '$lib/section/Daily.svelte';
 	import Weekly from '$lib/section/Weekly.svelte';
 	import Monthly from '$lib/section/Monthly.svelte';
-
-	function transformScroll(event: WheelEvent) {
-		if (!event.deltaY) return;
-
-		if (!event.currentTarget) return;
-
-		const target = event.currentTarget as HTMLElement;
-
-		sideScroll(target, event.deltaY > 0 ? 'right' : 'left', 10, event.deltaY, 7);
-	}
-
-	function sideScroll(
-		element: HTMLElement,
-		direction: 'left' | 'right',
-		speed: number,
-		distance: number,
-		step: number
-	) {
-		let scrollAmount = 0;
-		let slideTimer = setInterval(() => {
-			if (direction == 'left') {
-				element.scrollLeft -= step;
-			} else {
-				element.scrollLeft += step;
-			}
-			scrollAmount += step;
-
-			if (scrollAmount >= Math.abs(distance)) {
-				clearInterval(slideTimer);
-			}
-		}, speed);
-	}
 </script>
 
-<main on:wheel={transformScroll}>
+<main>
 	<div class="item"><Daily/></div>
 	<div class="item"><Weekly/></div>
 	<div class="item"><Monthly/></div>
