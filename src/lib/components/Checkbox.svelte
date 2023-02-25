@@ -1,6 +1,4 @@
 <script lang="ts">
-	import type { Writable } from "svelte/store";
-
 	export let value: boolean;
 	export let text: string;
 </script>
