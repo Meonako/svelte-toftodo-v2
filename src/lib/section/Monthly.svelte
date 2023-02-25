@@ -84,8 +84,6 @@
 			<Checkbox bind:value={$monthly.ArtificialIsland.Energy} text="Energy" />
 			<hr />
 			<Checkbox bind:value={$monthly.ArtificialIsland.Supply} text="Supply" />
-			<hr />
-			<Checkbox bind:value={$monthly.ArtificialIsland.Accessory} text="Accessory" />
 		</td>
 	</tr>
 </table>
