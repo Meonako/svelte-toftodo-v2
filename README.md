@@ -1,38 +1,29 @@
-# create-svelte
+# ToF todo list in SvelteKit
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Tower of Fantasy 'TODO' List. Featuring Daily, Weekly, Monthly
 
-## Creating a project
+# Why / What's this for?
 
-If you're seeing this, you've probably already done this step. Congrats!
+I tend to forget thing when the game don't put a red dot notification on it. That's why this was created.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+# TODO (Should be done in like a month if I'm not lazy)
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- Styling (Current one is sh*t)
+- Others category (e.g. Battle Royale)
+- Page for each category
+- More detail in each category (e.g. Mirroria Funzone place)
+- Settings
 
-## Developing
+# Usage
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+> Visit [the website](https://www.kawaiiwaifu.ml) or host it yourself or locally.
 
-```bash
-npm run dev
+There are 3 kind of checklist  
+- **Button** - `Left click` to increase the value. `Right click` to decrease the value.
+- **Checkbox** - Just a checkbox. Self explanatory
+- **Number box** - Currently only `Support Points` is this kind. which you can enter the number yourself or use the `Button` kind below the box
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+# Q & A
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- Why is it v2?
+  > v1 is build with `Svelte` (not Kit and I didn't upload it anywhere) so I recreated it in `SvelteKit` and uploaded it here
