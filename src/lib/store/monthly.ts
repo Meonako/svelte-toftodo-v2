@@ -13,7 +13,6 @@ export interface Monthly extends Base {
         Fiber: boolean,
         Energy: boolean,
         Supply: boolean,
-        Accessory: boolean,
     },
 };
 
@@ -25,7 +24,6 @@ const monthlyDefault: Monthly = {
 		Fiber: false,
 		Energy: false,
 		Supply: false,
-		Accessory: false
 	},
 	Time: new Date(),
 };
