@@ -106,7 +106,6 @@
 			<Checkbox bind:value={$weekly.ArtificialIsland.Supply} text="Supply Shop" />
 			<hr>
 			<Checkbox bind:value={$weekly.ArtificialIsland.Accessory} text="Accessory Shop" />
-			<hr>
 		</td>
 	</tr>
 </table>
