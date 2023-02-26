@@ -41,7 +41,7 @@
 	main {
 		text-align: center;
 		padding: 0 2.5rem .3rem 2.5rem;
-		margin: 1rem 2.5rem 0 2.5rem;
+		margin: 1rem 1.5rem 0 1.5rem;
 		border: 1px solid white;
 		backdrop-filter: blur(5px);
 		white-space: nowrap;
