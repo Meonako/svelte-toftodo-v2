@@ -31,6 +31,7 @@
 
 	function Time() {
 		if (firstReset) return;
+		if (!browser) return;
 		// const lastUpdate = new Date(2023, 0, 22, 3, 59, 59);
 		const lastUpdate = $daily.Time;
 		const currentTime = new Date();
@@ -45,7 +46,6 @@
 		console.log('Daily Reset Time: ', resetTime);
 
 		if (lastUpdate < resetTime) {
-			if (!browser) return;
 			showModal = true;
 		}
 	}

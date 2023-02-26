@@ -24,6 +24,7 @@
 
 	function Time() {
 		if (firstReset) return;
+		if (!browser) return;
 		// const lastUpdate = new Date(2023, 0, 22, 3, 59, 59);
 		const lastUpdate = $monthly.Time;
 		const resetTime = new Date();
@@ -34,7 +35,6 @@
 		console.log("Monthly Reset Time: ", resetTime)
 
 		if (lastUpdate < resetTime) {
-			if (!browser) return;
 			showModal = true;
 		}
 	}
