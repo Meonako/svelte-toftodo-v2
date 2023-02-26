@@ -5,12 +5,13 @@
 	import Modal from '$lib/components/ConfirmModal.svelte';
 
 	import { daily, dailyMax } from '$lib/store/daily';
-	import type { Daily } from '$lib/store/daily';
 	import { browser } from '$app/environment';
 	import { reset } from '$lib/utils/reset';
+	import { fade } from 'svelte/transition';
 
 	let showModal = false;
 	let firstReset = false;
+	let mirrorizFZtoggle = false;
 
 	$: if ($daily.SupportPoint > dailyMax.SupportPoint) {
 		$daily.SupportPoint = dailyMax.SupportPoint;
@@ -35,13 +36,13 @@
 		const currentTime = new Date();
 		const resetTime = new Date();
 		if (currentTime.getHours() <= 4) {
-            resetTime.setDate(currentTime.getDate() - 1)
-        }
+			resetTime.setDate(currentTime.getDate() - 1);
+		}
 		resetTime.setHours(4, 0, 0, 0);
 
-		console.log(resetTime.getTimezoneOffset() / 60)
-		console.log("Daily LastU Time: ", lastUpdate)
-		console.log("Daily Reset Time: ", resetTime)
+		console.log(resetTime.getTimezoneOffset() / 60);
+		console.log('Daily LastU Time: ', lastUpdate);
+		console.log('Daily Reset Time: ', resetTime);
 
 		if (lastUpdate < resetTime) {
 			if (!browser) return;
@@ -66,7 +67,7 @@
 		firstReset = false;
 		showModal = true;
 	}}
-    class="resetBtn"
+	class="resetBtn"
 	style="margin-top: 1rem"
 >
 	Reset
@@ -78,10 +79,35 @@
 			<Button bind:value={$daily.Bounty} max={dailyMax.Bounty} />
 		</td>
 	</tr>
-	<tr>
-		<td>Mirroria Fun Zone</td>
+	<tr transition:fade>
 		<td>
-			<Button bind:value={$daily.MirroriaFZ} max={dailyMax.MirroriaFZ} />
+			Mirroria Fun Zone 
+			<button on:click={() => (mirrorizFZtoggle = !mirrorizFZtoggle)}>
+				{#if !mirrorizFZtoggle}
+				+
+				{:else}
+				-
+				{/if}
+			</button>
+		</td>
+		<td transition:fade>
+			{#if !mirrorizFZtoggle}
+				<Button bind:value={$daily.MirroriaFZ} max={dailyMax.MirroriaFZ} />
+			{:else}
+				<Checkbox value={false} text="Laser" />
+				<hr />
+				<Checkbox value={false} text="Cube shooting" />
+				<hr />
+				<Checkbox value={false} text="Elemental Magic Cube" />
+				<hr />
+				<Checkbox value={false} text="Rhythm game" />
+				<hr />
+				<Checkbox value={false} text="Basketball" />
+				<hr />
+				<Checkbox value={false} text="Flying thru circles" />
+				<hr />
+				<Checkbox value={false} text="Shooting Tata" />
+			{/if}
 		</td>
 	</tr>
 	<tr>
