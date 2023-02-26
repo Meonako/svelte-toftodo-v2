@@ -13,6 +13,7 @@ I tend to forget thing when the game don't put a red dot notification on it. Tha
 - Page for each category
 - More detail in each category (e.g. Mirroria Funzone place)
 - Settings
+- Fix Confirmation Modal
 
 # Usage
 
