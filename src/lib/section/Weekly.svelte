@@ -4,7 +4,6 @@
 	import Modal from '$lib/components/ConfirmModal.svelte';
 
 	import { weekly, weeklyMax } from '$lib/store/weekly';
-	import type { Weekly } from '$lib/store/weekly';
 	import { browser } from '$app/environment';
 	import { reset } from '$lib/utils/reset';
 

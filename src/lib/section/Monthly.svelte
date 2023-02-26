@@ -6,7 +6,6 @@
 	import { browser } from '$app/environment';
 
 	import { monthly, monthlyMax } from '$lib/store/monthly';
-	import type { Monthly } from '$lib/store/monthly';
 	import { reset } from '$lib/utils/reset';
 
 	let showModal = false;
