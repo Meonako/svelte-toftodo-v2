@@ -29,7 +29,7 @@ const monthlyDefault: Monthly = {
 };
 
 export const monthlyMax = {
-    VoidAbyss: 5,
+    VoidAbyss: 6,
 };
 
 export const monthly = writable(getDefault(KEY, monthlyDefault));
