@@ -1,4 +1,4 @@
-<video autoplay loop muted playsinline src="/bg.mp4" />
+<video autoplay loop muted playsinline src="/bg.webm" />
 
 <style>
     video {
