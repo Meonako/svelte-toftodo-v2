@@ -1,6 +1,7 @@
 # ToF todo list in SvelteKit
 
-Tower of Fantasy 'TODO' List. Featuring Daily, Weekly, Monthly
+Tower of Fantasy 'TODO' List. Featuring Daily, Weekly, Monthly  
+![image](https://user-images.githubusercontent.com/76484203/221423482-2d55dc07-79dc-4196-817f-80e7a262e5a8.png)
 
 # Why / What's this for?
 
