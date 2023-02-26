@@ -6,7 +6,7 @@ import type { Base } from '../utils/interface';
 const KEY = 'monthly';
 
 export interface Monthly extends Base {
-	VoidAbyss: number,
+    VoidAbyss: number,
     ApexLeague: boolean,
     ArtificialIsland: {
         Metal: boolean,
@@ -17,23 +17,23 @@ export interface Monthly extends Base {
 };
 
 const monthlyDefault: Monthly = {
-	VoidAbyss: 0,
-	ApexLeague: false,
-	ArtificialIsland: {
-		Metal: false,
-		Fiber: false,
-		Energy: false,
-		Supply: false,
-	},
-	Time: new Date(),
+    VoidAbyss: 0,
+    ApexLeague: false,
+    ArtificialIsland: {
+        Metal: false,
+        Fiber: false,
+        Energy: false,
+        Supply: false,
+    },
+    Time: new Date(),
 };
 
 export const monthlyMax = {
-	VoidAbyss: 5,
+    VoidAbyss: 5,
 };
 
 export const monthly = writable(getDefault(KEY, monthlyDefault));
 
 if (browser) {
-	monthly.subscribe((value) => window.localStorage.setItem(KEY, JSON.stringify(value)));
+    monthly.subscribe((value) => window.localStorage.setItem(KEY, JSON.stringify(value)));
 }

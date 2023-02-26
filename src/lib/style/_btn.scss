@@ -1,19 +1,19 @@
 button.resetBtn {
-	margin-top: 1rem;
-	background-color: red;
-	color: hsl(0, 0%, 90%);
-	border: none;
-	box-shadow: 
-		0 0 10px white,
-		0 0 20px red,
-		0 0 30px red,
-		0 0 40px red,
-		0 0 50px red;
+    margin-top: 1rem;
+    background-color: red;
+    color: hsl(0, 0%, 90%);
+    border: none;
+    box-shadow: 
+        0 0 10px white,
+        0 0 20px red,
+        0 0 30px red,
+        0 0 40px red,
+        0 0 50px red;
 }
 
 button.resetBtn:hover {
-	background-color: hsl(0, 0%, 90%);
-	// background-color: hsl(60, 100%, 30%);
+    background-color: hsl(0, 0%, 90%);
+    // background-color: hsl(60, 100%, 30%);
     color: red;
     border: 1px solid red;
 }
